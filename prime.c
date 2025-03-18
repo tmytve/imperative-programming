@@ -12,7 +12,7 @@ int main(void){
         return 0;
     }
     
-    for(int i = 2; i <= (int)sqrt(num)/*eratostenes O(sqrt(n))*/; i++){ 
+    for(int i = 2; i <= (int)sqrt(num)/*eratostenes O(sqrt(n)) */; i++){ 
         if (num % i == 0){
             esPrimo = 0;
             break;
