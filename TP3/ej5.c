@@ -37,17 +37,16 @@ if ((b>='0' && b<='9')){
 	}
 }
 if (esVocal(c)||esMayus(c))
-printf("El caracter %c es una vocal o es mayúscula \n", c);
+	printf("El caracter %c es una vocal o es mayúscula \n", c);
 	
 if (!esVocal(c) && ((c>='A'&&c<='Z')||(c>='a'&&c<='z')))
-printf("El caracter %c no es una vocal pero es letra \n", c); //es como decir 'el caracter es una consonante'
+	printf("El caracter %c no es una vocal pero es letra \n", c); //es como decir 'el caracter es una consonante'
 
 }
 
 
 int esMayus(int a){
-	if (a>='A' && a<='Z')
-	{
+	if (a>='A' && a<='Z'){
 		return 1;
 	}
 	else{
@@ -55,8 +54,7 @@ int esMayus(int a){
 	}	
 }
 int esMinus(int a){
-	if (a>='a' && a<='z')
-	{
+	if (a>='a' && a<='z'){
 		return 1;
 	}
 	else{

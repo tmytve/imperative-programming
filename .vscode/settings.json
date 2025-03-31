@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "complex": "c"
+        "complex": "c",
+        "bitset": "c",
+        "unordered_map": "c"
     }
 }
