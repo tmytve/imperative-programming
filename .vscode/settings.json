@@ -3,6 +3,7 @@
         "stdio.h": "c",
         "complex": "c",
         "bitset": "c",
-        "unordered_map": "c"
+        "unordered_map": "c",
+        "random.h": "c"
     }
 }

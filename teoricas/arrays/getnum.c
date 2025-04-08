@@ -2,7 +2,6 @@
 #include "getnum.h"
 #include <string.h>
 
-
 #define BORRA_BUFFER while (getchar() != '\n')
 
 /* lee un entero */
