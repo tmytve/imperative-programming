@@ -6,9 +6,15 @@ Realizar una función suavizar que, dada una imagen, la suavice aplicando un fil
 El ancho y alto de la imagen son las constantes simbólicas ANCHO y ALTO respectivamente.
 */
 #include <stdio.h>
-#define ANCHO 5 //columnas
+#include <assert.h>
 #define ALTO 6 //filas
+#define ANCHO 5 //columnas
+#define MAX(x,y) ((x)>(y)?(x):(y))
+#define MIN(x,y) ((x)<(y)?(x):(y))
+
+int promedio(int matrix[][ANCHO], int i, int j , int W);
 void suavizar(int matrix[][ANCHO], int W);
+void printMatrix(int matrix[][ANCHO], int filas, int columnas);
 int main(void) {
     int W = 3;
     int matrix[ALTO][ANCHO] = {{10,10,20,23,24},
@@ -20,9 +26,45 @@ int main(void) {
 
     int newMatrix[ALTO][ANCHO];
     suavizar(matrix, W);
+    printMatrix(matrix, ALTO, ANCHO);
 }
 
 
-void suavizar(int matrix[][ANCHO], int W){
+void suavizar(int matrix[][ANCHO], int W){     
+    if (W % 2 == 0 || W < 3)
+        return;
     
+    int matrixAux[ALTO][ANCHO];
+    for (int i = 0; i < ALTO; i++){
+        for (int j = 0; j < ANCHO; j++){
+            matrixAux[i][j] = promedio(matrix, i, j, W);
+        }   
+    }
+    
+    for (int i = 0; i < ALTO; i++){
+        for (int j = 0; j < ANCHO; j++){
+            matrix[i][j] = matrixAux[i][j];
+        }
+    }
+}
+
+int promedio(int matrix[][ANCHO], int fil, int col , int W){
+    int r = W/2;
+    int sum = 0, cant = 0;
+    for (int i = MAX(0, fil - r); i < MIN(ALTO-1, fil + r); i++){
+        for (int j = MAX(0,col-r); j < MIN(ANCHO-1, col+r); j++){
+            sum += matrix[i][j];
+            cant++;
+        }
+    }
+    return sum/cant;
+}
+
+void printMatrix(int matrix[][ANCHO], int filas, int columnas){
+    for (int i = 0; i < filas; i++){
+        for (int j = 0; j < columnas; j++){
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
 }
